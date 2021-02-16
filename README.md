@@ -26,7 +26,7 @@ You must submit your work using Blackboard Learn and respect the following rules
 ### blocking: send/recv
     comm.send(0, dest=r, tag=11)
     comm.recv(source=MPI.ANY_SOURCE, tag=11)
-    
+
 ### non-blocking: isend/irecv
     comm.isend(0, dest=r, tag=11)
     req = comm.irecv(source=MPI.ANY_SOURCE, tag=11)
@@ -49,7 +49,7 @@ You must submit your work using Blackboard Learn and respect the following rules
 ### Collective Communication: reduce
 
     comm.reduce(data, op=MPI.SUM root=0)
-    
+
     MPI MAX, MPI MIN: maximum and minimum
     MPI MAXLOC, MPI MINLOC: maximum and minimum with corresponding array index
     MPI SUM, MPI PROD: sum and product

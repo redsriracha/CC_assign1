@@ -25,7 +25,7 @@ while True:
     if rank == 0:
         value = int(input(f"Rank {rank} input:"))
     comm.Barrier()
-    
+
     if rank != 0:
         value = comm.recv(source=rank-1, tag=rank-1)
 
