@@ -21,18 +21,16 @@ size = comm.Get_size()
 
 while True:
     # 0 gets the input, Non-0 receive value
-    comm.Barrier()
     if rank == 0:
         value = int(input(f"Rank {rank} input:"))
-    comm.Barrier()
-
-    if rank != 0:
+    else:
         value = comm.recv(source=rank-1, tag=rank-1)
 
     # Send to next in chain, unless last
     if rank < size-1:
         comm.send(value, dest=rank+1, tag=rank)
 
+    # Negative value will exit loop
     if value < 0:
         break
 

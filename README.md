@@ -17,7 +17,6 @@ You must submit your work using Blackboard Learn and respect the following rules
  - Screenshots are recommended to show the program outputs.
 
 ## Needed
-
     from mpi4py import MPI
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
@@ -34,20 +33,16 @@ You must submit your work using Blackboard Learn and respect the following rules
 	    print ("received msg")
 
 ### Collective Communication: broadcast
-
     comm.bcast(data, root=0)
 
 ### Collective Communication: scatter
-
     comm.scatter(data, root=0)
 
 ### Collective Communication: gather
-
     comm.Barrier()
     comm.gather(data, root=0)
 
 ### Collective Communication: reduce
-
     comm.reduce(data, op=MPI.SUM root=0)
 
     MPI MAX, MPI MIN: maximum and minimum
