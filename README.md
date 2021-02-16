@@ -20,27 +20,27 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 
-<!-- blocking: send/recv -->
+### <!-- blocking: send/recv -->
 comm.send(0, dest=r, tag=11)
 comm.recv(source=MPI.ANY_SOURCE, tag=11)
 
-<!-- non-blocking: isend/irecv -->
+### <!-- non-blocking: isend/irecv -->
 comm.isend(0, dest=r, tag=11)
 req = comm.irecv(source=MPI.ANY_SOURCE, tag=11)
 if(req.Test() == True): # check if it has received any message without getting blocked
     print ("received msg")
 
-<!-- Collective Communication: broadcast -->
+### <!-- Collective Communication: broadcast -->
 comm.bcast(data, root=0)
 
-<!-- Collective Communication: scatter -->
+### <!-- Collective Communication: scatter -->
 comm.scatter(data, root=0)
 
-<!-- Collective Communication: gather -->
+### <!-- Collective Communication: gather -->
 comm.Barrier()
 comm.gather(data, root=0)
 
-<!-- Collective Communication: reduce -->
+### <!-- Collective Communication: reduce -->
 comm.reduce(data, op=MPI.SUM root=0)
 
 MPI MAX, MPI MIN: maximum and minimum
@@ -49,7 +49,7 @@ MPI SUM, MPI PROD: sum and product
 MPI LAND, MPI LOR: logical AND and OR
 MPI BAND, MPI BOR: bitwise AND and OR
 
-<!-- NUMPY -->
+### <!-- NUMPY -->
 comm.Recv([data, MPI>INT], source=MPI.ANY_SOURCE, tag=11)
 comm.Send([data, MPI>INT], dest=r, tag=11)
 comm.Scatter(sendbuf, recvbuf, root=0)
